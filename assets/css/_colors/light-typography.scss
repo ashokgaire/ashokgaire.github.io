@@ -1,0 +1,74 @@
+/*!
+* The syntax light mode typography colors
+* v2.1
+* https://github.com/cotes2020/jekyll-theme-chirpy
+* © 2020 Cotes Chung
+* MIT Licensed
+*/
+
+@mixin light-scheme {
+  /* Common */
+  --body-bg: #0a192f;
+  --mask-bg: #0a192f;
+  --main-wrapper-bg: #0a192f;
+  --main-border-color: #64ffda;
+  --btn-border-color: #64ffda;
+  --text-color: #e6f1ff;
+  --blockquote-border-color: #8892b0;
+  --blockquote-text-color: #8892b0;
+  --link-color: #64ffda;
+  --link-underline-color: #dee2e6;
+  --text-muted-color: gray;
+  --tb-odd-bg: #fbfcfd;
+  --tb-border-color: #eaeaea;
+  --button-bg: #fff;
+  --btn-backtotop-color: #686868;
+  --btn-backtotop-border-color: #f1f1f1; //--main-border-color,
+  --btn-box-shadow: #eaeaea;
+
+  /* Sidebar */
+  --sidebar-bg: #172a45;
+  --nav-cursor-color: #64ffda;
+
+  /* Topbar */
+  --topbar-wrapper-bg: #0a192f;
+  --topbar-text-color: #64ffda;
+  --search-wrapper-bg: #0a192f;
+  --search-tag-bg: #64ffda;
+  --search-icon-color: #64ffda;
+  --input-focus-border-color: var(--btn-border-color);
+
+  /* Home page */
+  --post-list-text-color: #8892b0;
+  --btn-patinator-text-color: #555555;
+  --btn-paginator-hover-color: #e9ecef;
+  --btn-active-bg: #0a192f;
+  --btn-active-border-color: #007bff;
+  --btn-text-color: #64ffda;
+  --btn-paginator-border-color: #f1f1f1;
+  --btn-paginator-shadow: #4b92d2;
+
+  /* Posts */
+  --btn-share-hover-color: var(--link-color);
+  --card-border-color: #64ffda;
+  --card-box-shadow: rgba(234, 234, 234, 0.7686274509803922);
+  --label-color: #808080;
+  --relate-post-date: rgba(30, 55, 70, 0.4);
+  --tag-bg: rgba(0, 0, 0, 0.075);
+  --tag-border: #dee2e6;
+  --tag-shadow: var(--btn-border-color);
+  --tag-hover: rgb(222, 226, 230);
+  --categories-hover-bg: var(--btn-border-color);
+  --dash-color: silver;
+
+  /* Archive */
+  --timeline-color: #172a45;
+  --timeline-node-bg: #0a192f;
+  --timeline-year-dot-color: #ccd6f6;
+
+  /* Footer */
+  --footer-bg-color: #0a192f;
+  --footnote-target-bg: lightcyan;
+  --footer-link: #64ffda;
+} // light-scheme
+

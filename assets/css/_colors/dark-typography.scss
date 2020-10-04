@@ -1,0 +1,133 @@
+/*!
+* The main dark mode styles
+* v2.0
+* https://github.com/cotes2020/jekyll-theme-chirpy
+* © 2018-2019 Cotes Chung
+* MIT Licensed
+*/
+
+@mixin dark-scheme {
+  /* framework */
+  --main-wrapper-bg: #0a192f;
+  --body-bg: var(--main-wrapper-bg);
+  --topbar-wrapper-bg: #0a192f;
+  --search-wrapper-bg: #0a192f;
+  --search-icon-color: #64ffda;
+  --input-focus-border-color: #64ffda;
+  --mask-bg: rgb(68, 69, 70);
+  --footer-bg-color: var(--main-wrapper-bg);
+
+  /* common color */
+  --text-color: #8892b0;
+  --text-muted-color: rgb(107, 116, 124);
+  --link-color: #64ffda;
+  --link-underline-color: rgb(82, 108, 150);
+  --main-border-color: rgb(44, 45, 45);
+  --button-bg: #e6f1ff;
+  --blockquote-border-color: rgb(66, 66, 66);
+  --blockquote-text-color: rgb(117, 117, 117);
+
+  --btn-border-color:#303C55;
+  --btn-backtotop-color:  #64ffda;
+  --btn-backtotop-border-color: #64ffda;
+  --btn-box-shadow: var(--main-wrapper-bg);
+
+  --card-header-bg: #172a45;
+  --label-color: #64ffda;
+
+  /* Sidebar */
+  --sidebar-bg: #172a45;
+  --nav-cursor-color: #64ffda;
+
+  /* Top Bar */
+  --topbar-text-color: #64ffda;
+
+  /* Home page */
+  --post-list-text-color: #e6f1ff;
+  --btn-patinator-text-color: #0a192f;
+  --btn-paginator-hover-color: #64ffda;
+  --btn-active-bg: #64ffda;
+  --btn-active-border-color: #64ffda;
+  --btn-text-color: #0a192f;
+  --btn-paginator-border-color: #64ffda;
+  --btn-paginator-shadow: var(--main-wrapper-bg);
+
+  /* Posts */
+  --toc-highlight: rgb(116, 178, 243);
+  --tag-bg: #172a45;
+  --tag-hover: #fff;
+  --tb-odd-bg: rgba(42, 47, 53, 0.52); /* odd rows of the posts' table */
+  --tb-even-bg: rgb(31, 31, 34); /* even rows of the posts' table */
+  --tb-border-color: var(--tb-odd-bg);
+  --footnote-target-bg: rgb(63, 81, 181);
+  --btn-share-color: #6c757d;
+  --btn-share-hover-color: #bfc1ca;
+  --relate-post-date: var(--text-muted-color);
+  --card-bg: #303C55;
+  --card-border-color: rgb(53, 53, 60);
+  --card-box-shadow: var(--main-wrapper-bg);
+
+  /* tags */
+  --tag-border: rgb(59, 79, 88);
+  --tag-shadow: rgb(32, 33, 33);
+  --search-tag-bg: var(--tag-bg);
+
+  --dash-color: rgb(63, 65, 68);
+
+  /* categories */
+  --categories-border: #172a45;
+  --categories-hover-bg: #64ffda;
+
+  /* archives */
+  --timeline-node-bg: #64ffda;
+  --timeline-color: rgb(63, 65, 68);
+  --timeline-year-dot-color: var(--timeline-color);
+
+  /* Footer */
+  ---footer-link: #64ffda;
+
+  .post-content img {
+    filter: brightness(90%);
+  }
+
+  hr {
+    border-color: var(--main-border-color);
+  }
+
+  /* posts' toc, override BS */
+  nav[data-toggle=toc] .nav-link.active,
+  nav[data-toggle=toc] .nav-link.active:focus,
+  nav[data-toggle=toc] .nav-link.active:hover,
+  nav[data-toggle=toc] .nav>li>a:focus,
+  nav[data-toggle=toc] .nav>li>a:hover {
+    color: var(--toc-highlight)!important;
+    border-left-color: var(--toc-highlight)!important;
+  }
+
+  /* categories */
+  .categories.card,
+  .list-group-item {
+    background-color: var(--card-bg);
+  }
+
+  .categories {
+    .card-header {
+      background-color: var(--card-header-bg);
+    }
+    .list-group-item {
+      border-left: none;
+      border-right: none;
+      padding-left: 2rem;
+      border-color: var(--categories-border);
+      &:last-child {
+        border-bottom-color: var(--card-bg);
+      }
+    }
+  }
+
+  #archives li:nth-child(odd) {
+    background-image: linear-gradient(to left,
+      rgb(26, 26, 30), rgb(39, 39, 45), rgb(39, 39, 45), rgb(39, 39, 45), rgb(26, 26, 30));
+  }
+
+} // dark-scheme
