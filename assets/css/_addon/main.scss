@@ -305,6 +305,7 @@ $sidebar-display: "sidebar-display";
       &::after {
         content: "›";
         padding: 0 .3rem;
+        color:#8892b0;
       }
     }
   }
@@ -558,9 +559,9 @@ footer {
     padding: .3rem .5rem;
     margin: 0 .35rem .5rem 0;
     &:hover {
-      background-color: #2a408e;
-      border-color: #2a408e;
-      color: #fff;
+      background-color: #64ffda;
+      border-color: #64ffda;
+      color: #0a192f;
       transition: none;
     }
   }
@@ -617,12 +618,14 @@ footer {
 h1 {
   @extend %heading;
   font-size: 1.8rem;
+  color:#e6f1ff;
 }
 
 h2 {
   @extend %heading;
   @extend %section;
   @extend %anchor;
+  color:#64ffda;
   font-size: 1.4rem;
 }
 
@@ -630,6 +633,7 @@ h3 {
   @extend %heading;
   @extend %section;
   @extend %anchor;
+  color:#64ffda;
   font-size: 1.25rem;
 }
 

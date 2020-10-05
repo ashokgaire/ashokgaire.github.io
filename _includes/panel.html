@@ -20,7 +20,7 @@
       <h3 data-toc-skip>
         {{- site.data.label.panel.lastmod -}}
       </h3>
-      <ul class="post-content pl-0 pb-1 ml-1 mt-2">
+      <ul class="post-content pl-4 pb-1 ml-1 mt-2">
 
       {% for item in update_list %}
         {% assign post_url = item | split: "::" | last | url_encode | prepend: "/posts/" | append: "/" %}
@@ -59,7 +59,7 @@
   </div> <!-- .access -->
 
   {% if page.layout == 'post' and site.toc and page.toc %}
-  <div id="toc-wrapper" class="pl-0 pr-4 mb-5">
+  <div id="toc-wrapper" class="pl-4 pr-4 mb-5">
     <h3 data-toc-skip class="pl-3 pt-2 mb-2">
       {{- site.data.label.panel.toc -}}
     </h3>
