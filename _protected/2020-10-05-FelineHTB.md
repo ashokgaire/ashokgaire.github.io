@@ -128,7 +128,7 @@ tcp6       0      0 127.0.0.1:8005          :::*                    LISTEN
 tcp6       0      0 :::8080                 :::*                    LISTEN 
 ```
 the two ports `4505 and 4506` caught my eyes .so i google to find out
-what these port used for by default.[**Here**](https://docs.saltstack.com/en/latest/topics/tutorials/firewall.html) i found port 4505 and 4506 are saltstack.and  i found the [**poc**](https://github.com/jasperla/CVE-2020-11651-poc)for CVE-2020-11651.
+what these port used for by default.[**Here**](https://docs.saltstack.com/en/latest/topics/tutorials/firewall.html) . i found port 4505 and 4506 are saltstack.and  i found the [**poc**](https://github.com/jasperla/CVE-2020-11651-poc) for CVE-2020-11651.
 
 ### POC exploit
 
