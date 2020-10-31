@@ -10,11 +10,11 @@
 
 title: oxy                          # the main title
 
-tagline: Developer| Pentester | Hacker   # it will display as the sub-title
+tagline: Cyber Security Enthuasiast  # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   Hackthebox Active/Retired machines Writeups.
-  CTF Solutions.
+  Cyber Security Things.
 
 # Replace with the website url, e.g. 'https://username.github.io'
 url: 'https://ashokgaire.github.io'

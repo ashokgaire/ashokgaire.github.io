@@ -1,5 +1,5 @@
 var typewriter = new Typewriter('#typewriterapp', {
-    strings: ['Hacker','Pentester','Developer','Graphics Designer','InfoSec Blogger','Gamer'],
+    strings: ['Cyber Security Enthuasiast','Developer','Hacker','Graphics Designer','InfoSec Blogger','Gamer'],
     autoStart: true,
     loop: true,
     wrapperClassName: 'typeText',
