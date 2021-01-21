@@ -8,13 +8,13 @@
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 #--------------------------
 
-title: oxy                          # the main title
+title: Ashok Gaire  # the main title
 
-tagline: Cyber Security Enthuasiast  # it will display as the sub-title
+tagline: Software Engineer | Cyber Security Enthuasiast  # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  Hackthebox Active/Retired machines Writeups.
-  Cyber Security Things.
+  .
+  Cyber Security and software engineering stuffs.
 
 # Replace with the website url, e.g. 'https://username.github.io'
 url: 'https://ashokgaire.github.io'
