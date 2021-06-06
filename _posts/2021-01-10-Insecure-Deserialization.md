@@ -1,6 +1,6 @@
 ---
 title: "Insecure Deserialization with Python Pickle module"
-date: 2021-01-10 10:50:00 +0530
+date: 2021-05-20 10:50:00 +0530
 categories: [Python,Deserialization]
 tags: [pickle, python deserialization, pickling]
 image: /images/python/pickle.jpg
