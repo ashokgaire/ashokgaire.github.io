@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
       { type: 'output', text: '[+] Bootstrapping Spark executor & database connection pool...\n[+] Loading telemetry data streams...\n[+] Executing model inference (Generative AI RAG)...', color: 'info' },
       { type: 'output', text: '[✔] ETL Pipeline Status: ACTIVE\n[✔] Model Latency: 42ms\n[✔] Systems Integrity: VERIFIED', color: 'success' },
       { type: 'cmd', text: 'node server.js' },
-      { type: 'output', text: 'Server running securely at http://localhost:8080' }
+      { type: 'output', text: 'Server running securely at https://ashokgaire.github.io' }
     ];
 
     let logIndex = 0;
