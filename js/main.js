@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         line.className = 'terminal-line';
 
         if (log.type === 'cmd') {
-          line.innerHTML = `<span class="terminal-prompt">gaire@ncit:~$</span> <span class="terminal-cmd">${log.text}</span>`;
+          line.innerHTML = `<span class="terminal-prompt">gaire@system:~$</span> <span class="terminal-cmd">${log.text}</span>`;
         } else {
           const classColor = log.color ? ` ${log.color}` : '';
           line.innerHTML = `<span class="terminal-output${classColor}">${log.text}</span>`;
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Complete cycle, append terminal blinking cursor line
         const cursorLine = document.createElement('div');
         cursorLine.className = 'terminal-line';
-        cursorLine.innerHTML = `<span class="terminal-prompt">gaire@ncit:~$</span> <span class="terminal-cursor"></span>`;
+        cursorLine.innerHTML = `<span class="terminal-prompt">gaire@system:~$</span> <span class="terminal-cursor"></span>`;
         terminalBody.appendChild(cursorLine);
         terminalBody.scrollTop = terminalBody.scrollHeight;
       }
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Dynamic Formspree/Web3Forms Contact Submission ---
+  // --- Real FormSubmit.co Contact Submission ---
   const contactForm = document.getElementById('portfolioContactForm');
   const formStatus = document.getElementById('contactFormStatus');
   if (contactForm && formStatus) {
@@ -244,15 +244,78 @@ document.addEventListener('DOMContentLoaded', () => {
 
       formStatus.className = 'form-status info';
       formStatus.style.display = 'block';
-      formStatus.innerText = '[*] Sending packets to form endpoint...';
+      formStatus.innerText = '[*] Dispatching data packets to secure tunnel...';
 
-      // Simulated dispatch (Since Web3Forms or Formspree is simple, we set a direct response verification)
-      setTimeout(() => {
+      fetch("https://formsubmit.co/ajax/ashokgaire1@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: nameInput,
+          email: emailInput,
+          message: messageInput,
+          _subject: "New Portfolio Transmission from " + nameInput
+        })
+      })
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Network response was not ok.');
+      })
+      .then(data => {
         formStatus.className = 'form-status success';
-        formStatus.innerText = '[+] SUCCESS: Handshake verified. Packets dispatched securely to ashokgaire1@gmail.com!';
+        formStatus.innerText = '[+] SUCCESS: Handshake verified. Message dispatched securely to ashokgaire1@gmail.com!';
         contactForm.reset();
-      }, 1500);
+      })
+      .catch(error => {
+        console.error('Submission error:', error);
+        formStatus.className = 'form-status error';
+        formStatus.innerText = '[-] ERROR: Transmission failed. Please verify tunnel configuration and try again.';
+      });
     });
+  }
+
+  // --- Premium Light / Dark Theme Switcher ---
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  if (themeToggleBtn) {
+    const sunIcon = themeToggleBtn.querySelector('.theme-icon-sun');
+    const moonIcon = themeToggleBtn.querySelector('.theme-icon-moon');
+
+    const setDarkTheme = () => {
+      document.body.classList.remove('light-theme');
+      sunIcon.style.display = 'none';
+      moonIcon.style.display = 'block';
+      localStorage.setItem('theme-preference', 'dark');
+    };
+
+    const setLightTheme = () => {
+      document.body.classList.add('light-theme');
+      sunIcon.style.display = 'block';
+      moonIcon.style.display = 'none';
+      localStorage.setItem('theme-preference', 'light');
+    };
+
+    // Toggle theme action
+    themeToggleBtn.addEventListener('click', () => {
+      if (document.body.classList.contains('light-theme')) {
+        setDarkTheme();
+      } else {
+        setLightTheme();
+      }
+    });
+
+    // Check system preference or localStorage
+    const savedPreference = localStorage.getItem('theme-preference');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedPreference === 'light' || (!savedPreference && !systemPrefersDark)) {
+      setLightTheme();
+    } else {
+      setDarkTheme();
+    }
   }
 
   // --- Scroll Intersection Observer for Elements ---
