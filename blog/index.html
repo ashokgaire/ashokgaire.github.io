@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights & Security Audits | Ashok Gaire</title>
+  <meta name="description" content="Technical publication directory focusing on software engineering, cybersecurity, insecure deserialization, and Linux privilege escalation vectors by Ashok Gaire.">
+  <meta name="keywords" content="Ashok Gaire, Blog, Cyber Security, Hacking Writeup, TryHackMe, HackTheBox, Code Audit, Computer Engineering">
+  
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Security Insights & Walkthroughs | Ashok Gaire">
+  <meta property="og:description" content="Read educational analysis on code vulnerabilities, advanced pentesting challenges, and systems development protocols.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ashokgaire.github.io/blog/">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <style>
+    /* Subpage Search Bar & Filters */
+    .search-filter-section {
+      padding-top: 150px;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .search-box-container {
+      max-width: 600px;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    .search-input {
+      width: 100%;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      outline: none;
+      transition: var(--transition-normal);
+    }
+    
+    .search-input:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(79, 150, 235, 0.1);
+    }
+    
+    .filter-tags-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      list-style: none;
+    }
+    
+    .filter-btn {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 0.5rem 1.25rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      transition: var(--transition-normal);
+    }
+    
+    .filter-btn:hover {
+      border-color: var(--border-hover);
+      color: var(--text-primary);
+    }
+    
+    .filter-btn.active {
+      background-color: rgba(79, 150, 235, 0.1);
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Premium Sticky Header -->
+  <header class="header" id="blogHeader">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo" id="logoLink">
+        <span class="logo-dot"></span>GAIRE_SYSTEMS
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="../index.html#about" class="nav-link">About</a></li>
+          <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+          <li><a href="../index.html#experience" class="nav-link">Experience</a></li>
+          <li><a href="../index.html#services" class="nav-link">Services</a></li>
+          <li><a href="#" class="nav-link active">Insights</a></li>
+        </ul>
+      </nav>
+      <div class="nav-right">
+        <a href="../index.html#contact" class="btn btn-secondary" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">Connect</a>
+        <button class="nav-toggle" id="navToggleBtn" aria-label="Toggle Navigation menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Search and Query Filters -->
+    <section class="search-filter-section">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 2rem;">
+          <span class="section-tag">[SYSTEM_ARCHIVE]</span>
+          <h1 class="section-title">Insights & Audits Feed</h1>
+          <p class="section-desc">Search through detailed technical guides, vulnerability walk-throughs, and research papers.</p>
+        </div>
+        
+        <div class="search-box-container">
+          <input type="text" id="blogSearchInput" class="search-input" placeholder="Search keywords, vulnerabilities, or tag inputs...">
+        </div>
+        
+        <ul class="filter-tags-list" id="filterTagsList">
+          <li><button class="filter-btn active" data-filter="all" id="filterAll">All Insights</button></li>
+          <li><button class="filter-btn" data-filter="Python Security" id="filterPython">Python Security</button></li>
+          <li><button class="filter-btn" data-filter="Linux PrivEsc" id="filterLinux">Linux PrivEsc</button></li>
+          <li><button class="filter-btn" data-filter="Academic" id="filterAcademic">Academic Research</button></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Grid of Blog Posts -->
+    <section style="padding: 4rem 0 8rem 0;">
+      <div class="container">
+        <div class="blog-grid" id="blogArchiveGrid">
+          
+          <!-- Blog 1 -->
+          <article class="blog-card" data-tags="Python Security" id="post1">
+            <div class="blog-card-meta">
+              <span class="blog-card-tag">Python Security</span>
+              <time datetime="2026-05-15">May 15, 2026</time>
+            </div>
+            <div class="blog-card-content">
+              <h3 class="blog-card-title">
+                <a href="posts/insecure-deserialization.html" id="archiveLinkPickle">Insecure Deserialization with Python Pickle module</a>
+              </h3>
+              <p class="blog-card-desc">
+                An analytical deep-dive into Python serialization engines. Learn how to reconstruct data payloads to trigger remote command executions during runtime de-serialization.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <a href="posts/insecure-deserialization.html" class="blog-read-link" id="archiveBtnPickle">READ AUDIT WALKTHROUGH <span>→</span></a>
+            </div>
+          </article>
+
+          <!-- Blog 2 -->
+          <article class="blog-card" data-tags="Linux PrivEsc" id="post2">
+            <div class="blog-card-meta">
+              <span class="blog-card-tag">Linux PrivEsc</span>
+              <time datetime="2026-05-02">May 02, 2026</time>
+            </div>
+            <div class="blog-card-content">
+              <h3 class="blog-card-title">
+                <a href="posts/linux-privilege-escalation.html" id="archiveLinkPrivesc">Linux SUID Privilege Escalation Techniques</a>
+              </h3>
+              <p class="blog-card-desc">
+                Investigating binary privilege management models. Discover how misconfigured SUID binaries are leveraged by operators to escalate terminal access.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <a href="posts/linux-privilege-escalation.html" class="blog-read-link" id="archiveBtnPrivesc">READ AUDIT WALKTHROUGH <span>→</span></a>
+            </div>
+          </article>
+
+          <!-- Placeholder Academic Card to round out catalog -->
+          <article class="blog-card" data-tags="Academic" id="postAcademic">
+            <div class="blog-card-meta">
+              <span class="blog-card-tag">Academic</span>
+              <time datetime="2025-06-20">June 20, 2025</time>
+            </div>
+            <div class="blog-card-content">
+              <h3 class="blog-card-title">
+                <a href="#" style="pointer-events: none;" id="archiveLinkAcademic">Deep Learning Architectures for Nepali Handwritten OCR</a>
+              </h3>
+              <p class="blog-card-desc">
+                Evaluating custom convolutional neural network (CNN) structures, dataset preprocessing, and offline character recognition pipelines for Devanagari scripts. (M.Sc. CS Masters Thesis Abstract).
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-read-link" style="color: var(--text-muted);">PDF ABSTRACT ARCHIVED</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Premium Footer -->
+  <footer class="footer" id="blogFooter">
+    <div class="container footer-content">
+      <div>
+        <div class="footer-logo">GAIRE_SYSTEMS.</div>
+        <div class="footer-copy" style="margin-top: 0.5rem;">
+          &copy; 2026 Ashok Gaire. All rights reserved. Registered M.Eng CE Systems.
+        </div>
+      </div>
+      <ul class="footer-socials">
+        <li><a href="https://www.linkedin.com/in/ashok-gaire-20b5b1149/" class="footer-social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/ashokgaire" class="footer-social-link" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://ashokgaire.github.io/" class="footer-social-link" target="_blank" rel="noopener noreferrer">Legacy Blog</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+  <script src="../js/blog.js"></script>
+</body>
+</html>

@@ -1,12 +1,782 @@
----
-layout: home
-breadcrumb:
-  -
-    label: Posts
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ashok Gaire | M.Sc. CS Graduate & Remote Software Engineer</title>
+  <meta name="description" content="Portfolio of Ashok Gaire, Master of Science in Computer Science (M.Sc. CS) and Remote Software Engineer at SecondWrite. Specialized in high-performance data engineering, full-stack architectures, and Generative AI.">
+  <meta name="keywords" content="Ashok Gaire, Software Engineer, M.Sc. CS, Computer Science, Software Engineering, SecondWrite, Python, Django, React, Data Engineering, Nepali Handwritten OCR, Deep Learning">
+  
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Ashok Gaire | M.Sc. CS Graduate & Software Engineer">
+  <meta property="og:description" content="Explore the portfolio of Ashok Gaire. Specialized in high-performance data engineering pipelines, full-stack architectures, and Generative AI systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ashokgaire.github.io/">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-# Index page
-# v2.0
-# https://github.com/cotes2020/jekyll-theme-chirpy
-# © 2017-2019 Cotes Chung
-# MIT License
----
+  <!-- Premium Glassmorphic Header -->
+  <header class="header" id="mainHeader">
+    <div class="container nav-container">
+      <a href="#" class="logo" id="logoLink">
+        <span class="logo-dot"></span>GAIRE_SYSTEMS
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#about" class="nav-link" id="navLinkAbout">About</a></li>
+          <li><a href="#skills" class="nav-link" id="navLinkSkills">Skills</a></li>
+          <li><a href="#experience" class="nav-link" id="navLinkExp">Experience</a></li>
+          <li><a href="#services" class="nav-link" id="navLinkServices">Services</a></li>
+          <li><a href="#blog" class="nav-link" id="navLinkBlog">Insights</a></li>
+          <li><a href="#contact" class="nav-link" id="navLinkContact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-right">
+        <a href="#contact" class="btn btn-secondary" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;" id="navContactBtn">Connect</a>
+        <button class="nav-toggle" id="navToggleBtn" aria-label="Toggle Navigation menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-pretitle">
+            <span>[SYSTEM: ONLINE]</span>
+          </div>
+          <h1 class="hero-title">
+            Hi, I'm <br>
+            <span class="hero-name">Ashok Gaire</span>
+          </h1>
+          <div class="hero-subtitle" id="heroScrambleSubtitle">Software Engineer.</div>
+          <p class="hero-desc">
+            A Master of Science in Computer Science graduate and Remote Software Engineer specializing in scaling high-performance data pipelines, building responsive full-stack applications, and designing autonomous AI/ML workflows.
+          </p>
+          <div class="hero-broadcast" style="margin-top: 1.25rem; margin-bottom: 1.75rem; padding: 1rem 1.25rem; background: rgba(58, 238, 168, 0.03); border: 1px solid rgba(58, 238, 168, 0.15); border-left: 3px solid var(--accent-color); border-radius: 4px; font-family: 'Fira Code', monospace; font-size: 0.85rem; color: var(--text-color); line-height: 1.5; backdrop-filter: blur(4px);">
+            <span style="color: var(--accent-color); font-weight: bold; display: block; margin-bottom: 0.35rem; font-size: 0.75rem;">[AI_INTEGRATION_telemetry]</span>
+            "Orchestrating intelligent systems and building resilient, AI-integrated architectures."
+          </div>
+          <div class="hero-actions">
+            <a href="#skills" class="btn btn-primary" id="heroSkillsBtn">Audit My Skills</a>
+            <a href="#blog" class="btn btn-secondary" id="heroBlogBtn">Read Writeups</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">5+</span>
+              <span class="stat-label">Years Code Experience</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100M+</span>
+              <span class="stat-label">Data Records Processed</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">M.Sc. CS</span>
+              <span class="stat-label">Master Degree Focus</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Live Simulated Introspection Console -->
+        <div class="terminal-window" id="heroTerminal">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <span class="terminal-button terminal-close"></span>
+              <span class="terminal-button terminal-minimize"></span>
+              <span class="terminal-button terminal-maximize"></span>
+            </div>
+            <span class="terminal-title">introspection_engine@gaire-systems:~</span>
+          </div>
+          <div class="terminal-body" id="heroTerminalBody">
+            <!-- Simulated statements are appended here dynamically via main.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About & Credentials Section -->
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-details">
+          <div class="section-header" style="margin-bottom: 0;">
+            <span class="section-tag">[WHOAMI]</span>
+            <h2 class="section-title">Scaling Data Pipelines & Application Frontends</h2>
+          </div>
+          <p class="about-text">
+            I build resilient computational pipelines that merge scalable data engineering with modern full-stack systems. With a post-graduate <strong>Master of Science in Computer Science</strong> degree, my focus centers on designing high-throughput ETL models, responsive frontend dashboards, and robust agentic AI integrations.
+          </p>
+          <p class="about-text">
+            Throughout my professional tenure, I have specialized in microservice clustering, distributed database tuning, and API interface development. Additionally, as a **Top Rated Upwork Freelancer**, I deliver optimized web scraping automation, custom GenAI pipelines, and secure backend architectures to a global clientele, bringing logical security best practices to every system I construct.
+          </p>
+          <div class="academic-card" id="academicCredentialsCard">
+            <h3 class="academic-degree">Master of Science in Computer Science (M.Sc. CS)</h3>
+            <div class="academic-institution">Nepal College of Information Technology (NCIT), Pokhara University</div>
+            <div class="academic-meta">
+              <span class="academic-badge highlight">Post-Graduate (M.Sc. CS)</span>
+              <span class="academic-badge">Graduation: 2026</span>
+            </div>
+            <ul class="academic-details-list">
+              <li><strong>Research Thesis:</strong> Engineered and optimized a Deep Learning pipeline for **Nepali Handwritten OCR** using convolutional neural network (CNN) architectures.</li>
+              <li>Applied practical, clever technical strategies to bridge theoretical computer science models with high-throughput system pipelines.</li>
+              <li>Focused on advanced computational algorithms, scalable database designs, and autonomous machine learning workflows.</li>
+            </ul>
+
+            <!-- Bachelor's Credentials -->
+            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+              <h3 class="academic-degree" style="font-size: 1.15rem;">Bachelor of Software Engineering</h3>
+              <div class="academic-institution">Nepal College of Information Technology (NCIT), Pokhara University</div>
+              <div class="academic-meta">
+                <span class="academic-badge">Undergraduate (B.E. Software Engineering)</span>
+                <span class="academic-badge">Graduation: 2021</span>
+              </div>
+              <ul class="academic-details-list">
+                <li>Developed strong fundamentals in software patterns, clean architectural designs, and relational data layers.</li>
+                <li>Leveraged hands-on clever coding to construct robust custom applications and automation scripts.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Showcase visual element: Academic & HTB badging -->
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
+          <div class="terminal-window" style="height: auto; min-height: 280px;" id="systemsConfigCard">
+            <div class="terminal-header">
+              <div class="terminal-buttons">
+                <span class="terminal-button terminal-close"></span>
+                <span class="terminal-button terminal-minimize"></span>
+                <span class="terminal-button terminal-maximize"></span>
+              </div>
+              <span class="terminal-title">systems_config.json</span>
+            </div>
+            <div style="padding: 2rem; display: flex; flex-direction: column; gap: 1.5rem; font-family: var(--font-mono); font-size: 0.9rem;">
+              <div style="color: var(--accent-blue);">[+] SYSTEMS CONFIGURATION INITIALIZED:</div>
+              <div style="display: flex; flex-direction: column; gap: 0.5rem; border-left: 2px solid var(--border-color); padding-left: 1rem;">
+                <div><span style="color: var(--text-muted);">"user":</span> "ashokgaire"</div>
+                <div><span style="color: var(--text-muted);">"rank":</span> "Lead Systems Architect & Data Engineer"</div>
+                <div><span style="color: var(--text-muted);">"platforms":</span> ["Django / React", "Apache Spark / ETL", "Agentic LLMs / RAG"]</div>
+                <div><span style="color: var(--text-muted);">"specialties":</span> ["High-throughput Data Pipelines", "Autonomous AI Agents", "Full-Stack System Design", "Secure Backend Auditing"]</div>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">
+                // Real-time telemetry monitoring verifies optimal computational scale, query latency, and pipeline throughput.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Skills Dashboard Section -->
+    <section id="skills" style="background-color: rgba(18, 22, 32, 0.3); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">[SYSTEM_DIAGNOSTICS]</span>
+          <h2 class="section-title">Core Competencies & Integrity Audits</h2>
+          <p class="section-desc">Select an engineering category from the dashboard sidebar to trigger the live diagnostic scanning simulator.</p>
+        </div>
+        
+        <div class="skills-dashboard" id="skillsDashboard">
+          <div class="dashboard-layout">
+            <aside class="dashboard-sidebar">
+              <button class="dashboard-tab active" data-tab="data-eng" id="tabDataEng">
+                <span class="dashboard-tab-icon">01.</span> Data Engineering
+              </button>
+              <button class="dashboard-tab" data-tab="full-stack" id="tabFullStack">
+                <span class="dashboard-tab-icon">02.</span> Full-Stack Architecture
+              </button>
+              <button class="dashboard-tab" data-tab="ai-ml" id="tabAiMl">
+                <span class="dashboard-tab-icon">03.</span> AI/ML & GenAI
+              </button>
+              <button class="dashboard-tab" data-tab="sec-eng" id="tabSecEng">
+                <span class="dashboard-tab-icon">04.</span> System Design & Security
+              </button>
+            </aside>
+            
+            <div class="dashboard-content">
+              <!-- Data Engineering Pane -->
+              <div class="dashboard-pane active" id="data-eng">
+                <div>
+                  <h3 class="pane-title">
+                    High-Throughput Data Pipelines <span class="pane-title-badge">Scale Verified</span>
+                  </h3>
+                  <p class="pane-desc" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
+                    Designing high-throughput ETL orchestrations, microservice pipelines, Spark dataflows, and clustered database instances.
+                  </p>
+                </div>
+                
+                <div class="integrity-scanner-box">
+                  <div class="scanner-header">
+                    <span>ETL PROCESSING / STREAM LATENCY</span>
+                    <div class="scanner-status">
+                      <span class="scanner-status-dot"></span>
+                      <span class="scanner-status-text">SYSTEM SECURE & VERIFIED</span>
+                    </div>
+                  </div>
+                  <div class="scanner-grid">
+                    <div class="skill-rating-container">
+                      <div class="skill-rating-header">
+                        <span class="skill-rating-name">Python & Spark Dataflows</span>
+                        <span class="skill-rating-val">95%</span>
+                      </div>
+                      <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-value="95"></div>
+                      </div>
+                    </div>
+                    <div class="skill-rating-container">
+                      <div class="skill-rating-header">
+                        <span class="skill-rating-name">Automated ETL & Orchestration</span>
+                        <span class="skill-rating-val">92%</span>
+                      </div>
+                      <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-value="92"></div>
+                      </div>
+                    </div>
+                    <div class="skill-rating-container">
+                      <div class="skill-rating-header">
+                        <span class="skill-rating-name">Ansible & Clustered Infrastructure</span>
+                        <span class="skill-rating-val">90%</span>
+                      </div>
+                      <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-value="90"></div>
+                      </div>
+                    </div>
+                    <div class="skill-rating-container">
+                      <div class="skill-rating-header">
+                        <span class="skill-rating-name">Docker & Scale Orchestration</span>
+                        <span class="skill-rating-val">94%</span>
+                      </div>
+                      <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-value="94"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="scan-button" id="scanBtnData">⟳ RE-RUN ETL DATA PIPELINE TESTS</button>
+                </div>
+              </div>
+
+              <!-- Full-Stack Architecture Pane -->
+              <div class="dashboard-pane" id="full-stack">
+                <div>
+                  <h3 class="pane-title">
+                    Interactive Applications & Backends <span class="pane-title-badge">Production Ready</span>
+                  </h3>
+                  <p class="pane-desc" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
+                    Deploying responsive frontend panels utilizing modern frontend interfaces and optimized database layers.
+                  </p>
+                </div>
+                
+                <div class="integrity-scanner-box">
+                  <div class="scanner-header">
+                    <span>APPLICATION RESPONSIVENESS / DATA STORE LATENCY</span>
+                    <div class="scanner-status">
+                      <span class="scanner-status-dot"></span>
+                      <span class="scanner-status-text">SYSTEM SECURE & VERIFIED</span>
+                    </div>
+                  </div>
+                  <div class="scanner-grid">
+                    <div class="skill-rating-container">
+                      <div class="skill-rating-header">
+                        <span class="skill-rating-name">TypeScript / JavaScript</span>
+                        <span class="skill-rating-val">92%</span>
+                      </div>
+                      <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-value="92"></div>
+                      </div>
+                    </div>
+                    <div class="skill-rating-container">
+                      <div class="skill-rating-header">
+                        <span class="skill-rating-name">React.js & Application Panels</span>
+                        <span class="skill-rating-val">90%</span>
+                      </div>
+                      <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-value="90"></div>
+                      </div>
+                    </div>
+                    <div class="skill-rating-container">
+                      <div class="skill-rating-header">
+                        <span class="skill-rating-name">Python & Django Architecture</span>
+                        <span class="skill-rating-val">98%</span>
+                      </div>
+                      <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-value="98"></div>
+                      </div>
+                    </div>
+                    <div class="skill-rating-container">
+                      <div class="skill-rating-header">
+                        <span class="skill-rating-name">Relational Databases (PostgreSQL / SQL Server)</span>
+                        <span class="skill-rating-val">93%</span>
+                      </div>
+                      <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-value="93"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="scan-button" id="scanBtnFull">⟳ RUN DATABASE INTEGRITY SCAN</button>
+                </div>
+              </div>
+
+              <!-- AI/ML & GenAI Pane -->
+              <div class="dashboard-pane" id="ai-ml">
+                <div>
+                  <h3 class="pane-title">
+                    Agentic AGI & Generative AI <span class="pane-title-badge">Model Deployed</span>
+                  </h3>
+                  <p class="pane-desc" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
+                    Orchestrating multi-agent LLM systems, RAG indexes, ETL pipelines, and high-performance vector databases.
+                  </p>
+                </div>
+                
+                <div class="integrity-scanner-box">
+                  <div class="scanner-header">
+                    <span>AGENT PACKETS / VECTOR DATABASE LATENCY</span>
+                    <div class="scanner-status">
+                      <span class="scanner-status-dot"></span>
+                      <span class="scanner-status-text">SYSTEM SECURE & VERIFIED</span>
+                    </div>
+                  </div>
+                  <div class="scanner-grid">
+                    <div class="skill-rating-container">
+                      <div class="skill-rating-header">
+                        <span class="skill-rating-name">Agentic AGI & LLM Orchestration</span>
+                        <span class="skill-rating-val">94%</span>
+                      </div>
+                      <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-value="94"></div>
+                      </div>
+                    </div>
+                    <div class="skill-rating-container">
+                      <div class="skill-rating-header">
+                        <span class="skill-rating-name">Generative AI & Image Finetuning</span>
+                        <span class="skill-rating-val">90%</span>
+                      </div>
+                      <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-value="90"></div>
+                      </div>
+                    </div>
+                    <div class="skill-rating-container">
+                      <div class="skill-rating-header">
+                        <span class="skill-rating-name">RAG & Vector Stores (Pinecone)</span>
+                        <span class="skill-rating-val">95%</span>
+                      </div>
+                      <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-value="95"></div>
+                      </div>
+                    </div>
+                    <div class="skill-rating-container">
+                      <div class="skill-rating-header">
+                        <span class="skill-rating-name">Model Inference Optimizations</span>
+                        <span class="skill-rating-val">88%</span>
+                      </div>
+                      <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-value="88"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="scan-button" id="scanBtnAi">⟳ RE-ALIGN AGENTIC VECTOR MATRIX</button>
+                </div>
+              </div>
+
+              <!-- Systems Security Pane -->
+              <div class="dashboard-pane" id="sec-eng">
+                <div>
+                  <h3 class="pane-title">
+                    System Design & Security <span class="pane-title-badge">Architectural Scalability</span>
+                  </h3>
+                  <p class="pane-desc" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
+                    Designing highly scalable distributed systems, auditing container isolation models, and hardening relational backend architectures against extreme production loads.
+                  </p>
+                </div>
+                
+                <div class="integrity-scanner-box">
+                  <div class="scanner-header">
+                    <span>ARCHITECTURE METRICS / SYSTEM STABILITY</span>
+                    <div class="scanner-status">
+                      <span class="scanner-status-dot"></span>
+                      <span class="scanner-status-text">SYSTEM SECURE & VERIFIED</span>
+                    </div>
+                  </div>
+                  <div class="scanner-grid">
+                    <div class="skill-rating-container">
+                      <div class="skill-rating-header">
+                        <span class="skill-rating-name">High-Scalability Architectures</span>
+                        <span class="skill-rating-val">95%</span>
+                      </div>
+                      <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-value="95"></div>
+                      </div>
+                    </div>
+                    <div class="skill-rating-container">
+                      <div class="skill-rating-header">
+                        <span class="skill-rating-name">Distributed System Design</span>
+                        <span class="skill-rating-val">90%</span>
+                      </div>
+                      <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-value="90"></div>
+                      </div>
+                    </div>
+                    <div class="skill-rating-container">
+                      <div class="skill-rating-header">
+                        <span class="skill-rating-name">Secure Coding & Software Patterns</span>
+                        <span class="skill-rating-val">96%</span>
+                      </div>
+                      <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-value="96"></div>
+                      </div>
+                    </div>
+                    <div class="skill-rating-container">
+                      <div class="skill-rating-header">
+                        <span class="skill-rating-name">Infrastructure Hardening & Audits</span>
+                        <span class="skill-rating-val">92%</span>
+                      </div>
+                      <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-value="92"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="scan-button" id="scanBtnSec">⟳ RUN SYSTEM ARCHITECTURE AUDIT</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Timeline Section -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">[TIMELINE]</span>
+          <h2 class="section-title">Professional Journey</h2>
+          <p class="section-desc">Practical experience developing automated security backends and clean business applications.</p>
+        </div>
+        
+        <div class="timeline" id="experienceTimeline">
+          <!-- SecondWrite -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header-block">
+                <div>
+                  <h3 class="timeline-role">Remote Software Engineer</h3>
+                  <span class="timeline-company">SecondWrite</span>
+                </div>
+                <span class="timeline-date">May 2022 - Present</span>
+              </div>
+              <p class="timeline-body-text">
+                Developing next-generation automated malware scanning and analysis infrastructures. Core focus involves engineering containment environments, streamlining sandbox dynamic execution diagnostics, and designing forced-execution paths for modern antivirus hypervisors. Automating orchestration using Python, Django, C/C++ backend components, and Docker systems.
+              </p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">Dynamic Malware Analysis</span>
+                <span class="timeline-tag">Python & C++</span>
+                <span class="timeline-tag">Docker Containerization</span>
+                <span class="timeline-tag">System Security Audits</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Upwork Freelance -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header-block">
+                <div>
+                  <h3 class="timeline-role">Freelance Full Stack Developer & ML Engineer</h3>
+                  <span class="timeline-company">Upwork (Top Rated Freelancer)</span>
+                </div>
+                <span class="timeline-date">2020 - Present</span>
+              </div>
+              <p class="timeline-body-text">
+                Delivering secure web architectures and AI integrations to clients worldwide. Specializing in high-performance Django/React applications, custom web scraping, automated ETL workflows, large language model (LLM) agent setups, and RAG data integrations using Pinecone.
+              </p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">Upwork Specialist</span>
+                <span class="timeline-tag">Generative AI & LLMs</span>
+                <span class="timeline-tag">Full Stack Development</span>
+                <span class="timeline-tag">Scraping & Data Engineering</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Master's Period -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header-block">
+                <div>
+                  <h3 class="timeline-role">Master of Science in Computer Science</h3>
+                  <span class="timeline-company">Nepal College of Information Technology (NCIT)</span>
+                </div>
+                <span class="timeline-date">2022 - 2026</span>
+              </div>
+              <p class="timeline-body-text">
+                Focused on deep learning models, advanced database internals, and high-performance pipeline structures. Authored a research thesis on **Nepali Handwritten OCR**, utilizing custom convolutional neural network (CNN) models to optimize offline character recognition.
+              </p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">M.Sc. Computer Science</span>
+                <span class="timeline-tag">Nepali Handwritten OCR</span>
+                <span class="timeline-tag">Deep Learning / CNN</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bachelor's Period -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header-block">
+                <div>
+                  <h3 class="timeline-role">Bachelor of Software Engineering</h3>
+                  <span class="timeline-company">Nepal College of Information Technology (NCIT)</span>
+                </div>
+                <span class="timeline-date">2017 - 2021</span>
+              </div>
+              <p class="timeline-body-text">
+                Studied core software architectures, design patterns, and relational databases. Developed strong hands-on automation, API parsing modules, and custom data processing scripts using clever implementation approaches.
+              </p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">B.E. Software Engineering</span>
+                <span class="timeline-tag">Software Architecture</span>
+                <span class="timeline-tag">Custom APIs & Scripts</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gurkha Technology -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header-block">
+                <div>
+                  <h3 class="timeline-role">Python Developer</h3>
+                  <span class="timeline-company">Gurkha Technology</span>
+                </div>
+                <span class="timeline-date">2019 - 2020</span>
+              </div>
+              <p class="timeline-body-text">
+                Designed scalable backend web utilities, developed API modules for transaction processing, and optimized database query latency. Embedded robust secure-coding practices across Django-based product environments, decreasing software vulnerabilities in production.
+              </p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">Python & Django</span>
+                <span class="timeline-tag">REST API Engineering</span>
+                <span class="timeline-tag">Database Tuning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Offered Section -->
+    <section id="services" style="background-color: rgba(18, 22, 32, 0.3); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">[SERVICES]</span>
+          <h2 class="section-title">Specialized Consulting & Development</h2>
+          <p class="section-desc">Targeted advanced technical services designed to validate code architecture integrity and build robust backend software pipelines.</p>
+        </div>
+        
+        <div class="services-grid" id="servicesGrid">
+          <!-- Data Engineering -->
+          <div class="service-card" id="serviceCardDataPipelines">
+            <div class="service-icon-box">⚙️</div>
+            <h3 class="service-title">High-Performance Data Engineering</h3>
+            <p class="service-desc">
+              Designing and scaling real-time ETL pipelines, custom web scraping loops, concurrent microservice networks, and highly available database architectures.
+            </p>
+            <ul class="service-features">
+              <li>High-throughput Spark & Python pipelines.</li>
+              <li>Custom automated scraping solutions.</li>
+              <li>Clustered PostgreSQL and database stores.</li>
+            </ul>
+          </div>
+
+          <!-- Full Stack -->
+          <div class="service-card" id="serviceCardFullStack">
+            <div class="service-icon-box">&lt;/&gt;</div>
+            <h3 class="service-title">Premium Full-Stack Systems</h3>
+            <p class="service-desc">
+              Engineering responsive frontend panels utilizing React and TypeScript, supported by high-speed Django REST APIs and containerized microservices.
+            </p>
+            <ul class="service-features">
+              <li>High-throughput concurrent API models.</li>
+              <li>Docker containment scaling patterns.</li>
+              <li>Clean, responsive dashboard architectures.</li>
+            </ul>
+          </div>
+
+          <!-- Agentic AI & Data pipelines -->
+          <div class="service-card" id="serviceCardAiPipelines">
+            <div class="service-icon-box">🤖</div>
+            <h3 class="service-title">Agentic AI & GenAI Systems</h3>
+            <p class="service-desc">
+              Designing autonomous multi-agent systems, custom Retrieval-Augmented Generation (RAG) vector layers, and prompt orchestration frameworks.
+            </p>
+            <ul class="service-features">
+              <li>Multi-agent consensus orchestrations.</li>
+              <li>Enterprise RAG with Pinecone vectors.</li>
+              <li>Fast model API & deployment pipelines.</li>
+            </ul>
+          </div>
+
+          <!-- System Design & Security -->
+          <div class="service-card" id="serviceCardSecurityAudits">
+            <div class="service-icon-box">🛡️</div>
+            <h3 class="service-title">System Design & Security</h3>
+            <p class="service-desc">
+              Constructing scalable, secure backend systems, auditing database architectures, and hardening distributed container topologies against extreme production loads.
+            </p>
+            <ul class="service-features">
+              <li>High-scalability architecture reviews.</li>
+              <li>Privilege hardening & system security.</li>
+              <li>Docker microservice isolation patterns.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Insights (Blog Section) -->
+    <section id="blog">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">[INSIGHTS]</span>
+          <h2 class="section-title">Technical Publication Feed</h2>
+          <p class="section-desc">Deep-dives into advanced code exploits, vulnerability reviews, and security platform walk-throughs.</p>
+        </div>
+        
+        <div class="blog-grid" id="featuredBlogsGrid">
+          <!-- Blog 1 -->
+          <article class="blog-card" id="featuredPost1">
+            <div class="blog-card-meta">
+              <span class="blog-card-tag">Python Security</span>
+              <time datetime="2026-05-15">May 15, 2026</time>
+            </div>
+            <div class="blog-card-content">
+              <h3 class="blog-card-title">
+                <a href="blog/posts/insecure-deserialization.html" id="blogLinkPickle">Insecure Deserialization with Python Pickle module</a>
+              </h3>
+              <p class="blog-card-desc">
+                An analytical deep-dive into Python serialization engines. Learn how to reconstruct data payloads to trigger remote command executions during runtime de-serialization.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <a href="blog/posts/insecure-deserialization.html" class="blog-read-link" id="readBtnPickle">READ AUDIT WALKTHROUGH <span>→</span></a>
+            </div>
+          </article>
+
+          <!-- Blog 2 -->
+          <article class="blog-card" id="featuredPost2">
+            <div class="blog-card-meta">
+              <span class="blog-card-tag">Linux PrivEsc</span>
+              <time datetime="2026-05-02">May 02, 2026</time>
+            </div>
+            <div class="blog-card-content">
+              <h3 class="blog-card-title">
+                <a href="blog/posts/linux-privilege-escalation.html" id="blogLinkPrivesc">Linux SUID Privilege Escalation Techniques</a>
+              </h3>
+              <p class="blog-card-desc">
+                Investigating binary privilege management models. Discover how misconfigured SUID binaries are leveraged by operators to escalate terminal access.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <a href="blog/posts/linux-privilege-escalation.html" class="blog-read-link" id="readBtnPrivesc">READ AUDIT WALKTHROUGH <span>→</span></a>
+            </div>
+          </article>
+        </div>
+        
+        <div style="text-align: center; margin-top: 4rem;">
+          <a href="blog/index.html" class="btn btn-secondary" id="allPostsLink">View Entire Publication Directory</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Console Section -->
+    <section id="contact" style="background-color: rgba(18, 22, 32, 0.3); border-top: 1px solid var(--border-color);">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <div class="section-header" style="margin-bottom: 0;">
+            <span class="section-tag">[ESTABLISH_HANDSHAKE]</span>
+            <h2 class="section-title">Initiate Secure Tunnel</h2>
+            <p class="section-desc">Connect for systems development, code review, or joint research ventures.</p>
+          </div>
+          
+          <div class="contact-card" id="contactCardEmail">
+            <div class="contact-icon">✉</div>
+            <div class="contact-details">
+              <span class="contact-label">Secure Direct Mail</span>
+              <span class="contact-val"><a href="mailto:ashokgaire1@gmail.com" id="mailLink">ashokgaire1@gmail.com</a></span>
+            </div>
+          </div>
+
+          <div class="contact-card" id="contactCardLocation">
+            <div class="contact-icon">📍</div>
+            <div class="contact-details">
+              <span class="contact-label">Node Coordinates</span>
+              <span class="contact-val">Kathmandu, Nepal</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form-card" id="contactFormContainer">
+          <form id="portfolioContactForm" autocomplete="on">
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="name" class="form-label">Identifier (Name)</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="e.g., John Doe" required>
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-label">Return Mail (Email)</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="e.g., client@network.org" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message" class="form-label">Transmission Packets (Message)</label>
+              <textarea id="message" name="message" class="form-textarea" placeholder="Detail your project parameter requirements here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;" id="submitFormBtn">
+              DISPATCH DATA PACKETS
+            </button>
+            <div class="form-status" id="contactFormStatus"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Premium Footer -->
+  <footer class="footer" id="mainFooter">
+    <div class="container footer-content">
+      <div>
+        <div class="footer-logo">GAIRE_SYSTEMS.</div>
+        <div class="footer-copy" style="margin-top: 0.5rem;">
+          &copy; 2026 Ashok Gaire. All rights reserved. Registered M.Eng CE Systems.
+        </div>
+      </div>
+      <ul class="footer-socials">
+        <li>
+          <a href="https://www.linkedin.com/in/ashok-gaire-20b5b1149/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" id="footerSocialLinkedin">
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/ashokgaire" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" id="footerSocialGithub">
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://ashokgaire.github.io/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Legacy Systems Archive" id="footerSocialLegacy">
+            Legacy Blog
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

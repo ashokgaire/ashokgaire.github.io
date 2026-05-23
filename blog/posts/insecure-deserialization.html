@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insecure Deserialization with Python Pickle | Ashok Gaire</title>
+  <meta name="description" content="A detailed technical walkthrough on identifying and exploiting Insecure Deserialization vulnerabilities in Python's Pickle serialization module.">
+  <meta name="keywords" content="Insecure Deserialization, Python Pickle, Code Audit, Exploit Walkthrough, Cybersecurity, OWASP Top 10">
+  
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Insecure Deserialization with Python Pickle | Ashok Gaire">
+  <meta property="og:description" content="Discover how custom payload objects are leveraged to hijack program flows during Pickle data un-serialization.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ashokgaire.github.io/blog/posts/insecure-deserialization.html">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header class="header" id="postHeader">
+    <div class="container nav-container">
+      <a href="../../index.html" class="logo" id="logoLink">
+        <span class="logo-dot"></span>GAIRE_SYSTEMS
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../index.html#about" class="nav-link">About</a></li>
+          <li><a href="../../index.html#skills" class="nav-link">Skills</a></li>
+          <li><a href="../../index.html#experience" class="nav-link">Experience</a></li>
+          <li><a href="../../index.html#services" class="nav-link">Services</a></li>
+          <li><a href="../index.html" class="nav-link active">Insights</a></li>
+        </ul>
+      </nav>
+      <div class="nav-right">
+        <a href="../../index.html#contact" class="btn btn-secondary" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">Connect</a>
+        <button class="nav-toggle" id="navToggleBtn" aria-label="Toggle Navigation menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article class="container">
+      <header class="blog-post-header">
+        <div style="margin-bottom: 1rem;">
+          <a href="../index.html" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-blue); display: flex; align-items: center; gap: 0.5rem;">
+            <span>←</span> RETURN TO ARCHIVE CONSOLE
+          </a>
+        </div>
+        <h1 class="blog-post-title">Insecure Deserialization with Python Pickle module</h1>
+        <div class="blog-post-meta">
+          <span class="blog-post-meta-item"><span class="blog-post-meta-dot">▪</span> TAG: Python Security</span>
+          <span class="blog-post-meta-item"><span class="blog-post-meta-dot">▪</span> DISCLOSED: May 15, 2026</span>
+          <span class="blog-post-meta-item"><span class="blog-post-meta-dot">▪</span> CLASSIFICATION: Educational Walkthrough</span>
+        </div>
+      </header>
+
+      <div class="blog-post-content">
+        <p>
+          Insecure deserialization is a critical security vulnerability that is often difficult to detect through shallow automated scans. In my role reviewing backend code bases, I frequently notice that developers treat Python's built-in <code>pickle</code> module as a safe mechanism to store and pass complex object states. However, Pickle was never designed to be secure against untrusted inputs.
+        </p>
+
+        <h2>The Concept: What is Serialization?</h2>
+        <p>
+          Serialization is the process of converting an in-memory object (such as a dictionary, database model instance, or custom class) into a byte stream suitable for storage on a disk or transmission across networks. Deserialization is the reverse process, parsing the byte stream to reconstruct the original object structure in application memory.
+        </p>
+        <p>
+          In Python, the <code>pickle</code> module handles this sequence via <code>pickle.dumps()</code> and <code>pickle.loads()</code>.
+        </p>
+
+        <h2>The Root Cause: Python's <code>__reduce__</code> Method</h2>
+        <p>
+          The underlying security risk in Pickle stems from class un-serialization control flows. When Pickle un-serializes a byte stream, developers can override default assembly behaviors using a special magic method called <code>__reduce__</code>.
+        </p>
+        <p>
+          The <code>__reduce__</code> magic method is expected to return either a string (representing a global variable name) or a tuple containing two or three parameters:
+        </p>
+        <ul>
+          <li>A callable object (e.g., a function, method, or class builder).</li>
+          <li>A tuple of arguments passed to that callable.</li>
+          <li>Optional state parameters for advanced customization.</li>
+        </ul>
+        <p>
+          During un-serialization, Python's Pickle virtual machine automatically executes the callable with the supplied arguments. If an attacker intercepts or constructs the serialized byte stream, they can designate system-level callables like <code>os.system</code> or <code>subprocess.Popen</code>, passing arbitrary commands to achieve instant <strong>Remote Code Execution (RCE)</strong>.
+        </p>
+
+        <h2>Constructing the Exploit Payload</h2>
+        <p>
+          Below is a reference implementation showing how a penetration tester or secure code auditor can structure a payload class to inject system actions:
+        </p>
+
+        <pre><code><span class="code-keyword">import</span> pickle
+<span class="code-keyword">import</span> os
+
+<span class="code-keyword">class</span> <span class="code-function">ExploitPayload</span>(object):
+    <span class="code-keyword">def</span> <span class="code-function">__reduce__</span>(self):
+        <span class="code-comment"># Define the command we want executed upon deserialization</span>
+        cmd = <span class="code-string">"whoami &gt; /tmp/audit_integrity.txt"</span>
+        <span class="code-keyword">return</span> (os.system, (cmd,))
+
+<span class="code-comment"># Serialize the malicious object instance</span>
+serialized_payload = pickle.dumps(ExploitPayload())
+
+<span class="code-comment"># Print hexadecimal format of raw bytes to inspect structure</span>
+<span class="code-function">print</span>(serialized_payload.hex())
+</code></pre>
+
+        <p>
+          When <code>pickle.loads(serialized_payload)</code> is parsed by an application, the target runtime environment will execute <code>os.system("whoami > /tmp/audit_integrity.txt")</code> automatically, completely bypassing traditional authentication checks.
+        </p>
+
+        <blockquote>
+          <p>
+            [!WARNING]
+            <strong>Never deserialize inputs received from untrusted sources.</strong> If you must pass object states across untrusted boundaries, prefer safe schemas like JSON, YAML, or Protocol Buffers, and validate inputs against a strict, predefined structural schema.
+          </p>
+        </blockquote>
+
+        <h2>Remediation Strategies</h2>
+        <ol>
+          <li><strong>Avoid Pickle Entirely:</strong> Where possible, migrate configurations and messages to stateless, cryptographically signed JSON layers.</li>
+          <li><strong>HMAC Signatures:</strong> If your infrastructure relies on Pickled files across system endpoints, use a strong cryptographic signing mechanism like <code>hmac</code> to verify package integrity before deserializing. Reject any stream where signatures fail to validate.</li>
+          <li><strong>Runtime Sandbox Isolation:</strong> Ensure all application containers running serialization queues are isolated within minimal privileges (using Docker namespaces or dynamic hypervisors) to reduce exploit impact.</li>
+        </ol>
+
+        <h2>Conclusion</h2>
+        <p>
+          Insecure deserialization remains a high-severity OWASP threat. Securing your application pipeline begins with selecting safe serialization defaults and maintaining rigorous verification gates. Always audit your code base for legacy Pickle use cases to protect your servers from unexpected shell commands.
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <!-- Premium Footer -->
+  <footer class="footer" id="postFooter">
+    <div class="container footer-content">
+      <div>
+        <div class="footer-logo">GAIRE_SYSTEMS.</div>
+        <div class="footer-copy" style="margin-top: 0.5rem;">
+          &copy; 2026 Ashok Gaire. All rights reserved. Registered M.Eng CE Systems.
+        </div>
+      </div>
+      <ul class="footer-socials">
+        <li><a href="https://www.linkedin.com/in/ashok-gaire-20b5b1149/" class="footer-social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/ashokgaire" class="footer-social-link" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://ashokgaire.github.io/" class="footer-social-link" target="_blank" rel="noopener noreferrer">Legacy Blog</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../js/main.js"></script>
+</body>
+</html>

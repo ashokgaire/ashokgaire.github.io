@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linux SUID Privilege Escalation Techniques | Ashok Gaire</title>
+  <meta name="description" content="A comprehensive analysis of misconfigured SUID binaries on Linux systems and how they are leveraged by security auditors to escalate user privileges.">
+  <meta name="keywords" content="SUID, Privilege Escalation, Linux Security, GTFOBins, Penetration Testing, Secure System Configuration">
+  
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Linux SUID Privilege Escalation Techniques | Ashok Gaire">
+  <meta property="og:description" content="Master how binary permissions models function and audit SUID structures to isolate privilege vectors.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ashokgaire.github.io/blog/posts/linux-privilege-escalation.html">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header class="header" id="postHeader">
+    <div class="container nav-container">
+      <a href="../../index.html" class="logo" id="logoLink">
+        <span class="logo-dot"></span>GAIRE_SYSTEMS
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../index.html#about" class="nav-link">About</a></li>
+          <li><a href="../../index.html#skills" class="nav-link">Skills</a></li>
+          <li><a href="../../index.html#experience" class="nav-link">Experience</a></li>
+          <li><a href="../../index.html#services" class="nav-link">Services</a></li>
+          <li><a href="../index.html" class="nav-link active">Insights</a></li>
+        </ul>
+      </nav>
+      <div class="nav-right">
+        <a href="../../index.html#contact" class="btn btn-secondary" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">Connect</a>
+        <button class="nav-toggle" id="navToggleBtn" aria-label="Toggle Navigation menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article class="container">
+      <header class="blog-post-header">
+        <div style="margin-bottom: 1rem;">
+          <a href="../index.html" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-blue); display: flex; align-items: center; gap: 0.5rem;">
+            <span>←</span> RETURN TO ARCHIVE CONSOLE
+          </a>
+        </div>
+        <h1 class="blog-post-title">Linux SUID Privilege Escalation Techniques</h1>
+        <div class="blog-post-meta">
+          <span class="blog-post-meta-item"><span class="blog-post-meta-dot">▪</span> TAG: Linux PrivEsc</span>
+          <span class="blog-post-meta-item"><span class="blog-post-meta-dot">▪</span> DISCLOSED: May 02, 2026</span>
+          <span class="blog-post-meta-item"><span class="blog-post-meta-dot">▪</span> CLASSIFICATION: Educational Walkthrough</span>
+        </div>
+      </header>
+
+      <div class="blog-post-content">
+        <p>
+          During security assessments and TryHackMe or HackTheBox penetration testing sequences, local enumeration of binary permissions models represents a pivotal step. Once initial system foothold is achieved, identifying misconfigured SUID (Set Owner User ID) permissions stands out as one of the most reliable privilege escalation paths.
+        </p>
+
+        <h2>What is SUID?</h2>
+        <p>
+          In Unix-like systems, SUID is a special permission bit assigned to executable files. When a binary with the SUID bit active is run by a standard user, it inherits the access permissions of the binary's <strong>owner</strong> (often <code>root</code>), rather than the user launching it.
+        </p>
+        <p>
+          This capability is essential for system commands. For example, the <code>passwd</code> binary needs to modify <code>/etc/shadow</code> (a file restricted to root write permissions). By making <code>passwd</code> SUID root, standard users can safely update their credentials.
+        </p>
+
+        <h2>The Risk: Misconfigured Custom Binaries</h2>
+        <p>
+          Vulnerabilities crop up when administrators apply SUID configurations to custom utilities or general-purpose system tools (like compilers, text editors, or compression scripts) that permit arbitrary file reading, execution of secondary commands, or environmental variables overrides.
+        </p>
+
+        <h2>Step 1: Locating SUID Binaries</h2>
+        <p>
+          To find SUID executables across target directories, issue a recursive search utilizing system <code>find</code> instructions:
+        </p>
+
+        <pre><code><span class="code-comment"># Locating all SUID files owned by root, discarding stderr errors</span>
+find / -perm -4000 -user root -type f 2&gt;/dev/null
+</code></pre>
+
+        <p>
+          Review outputs carefully, checking for custom configurations outside standard standard directories (e.g. <code>/opt/</code> or <code>/home/user/</code>).
+        </p>
+
+        <h2>Step 2: Leveraging GTFOBins</h2>
+        <p>
+          If you uncover a standard system tool in the results list, cross-reference it against <strong>GTFOBins</strong> (a curated catalog of Unix binaries that can be abused to bypass system constraints).
+        </p>
+        
+        <h3>Example A: Exploiting SUID <code>find</code></h3>
+        <p>
+          If the <code>find</code> executable has SUID privileges active, an operator can execute system shell commands via the <code>-exec</code> parameter:
+        </p>
+        <pre><code><span class="code-comment"># Escape to elevated root prompt using find -exec</span>
+/usr/bin/find . -exec /bin/sh -p \; -quit
+</code></pre>
+
+        <h3>Example B: Exploiting SUID <code>awk</code></h3>
+        <p>
+          If <code>awk</code> is misconfigured with SUID status, it can execute custom systems scripts securely with parent capabilities:
+        </p>
+        <pre><code><span class="code-comment"># Execute an interactive shell within the awk interpreter</span>
+/usr/bin/awk 'BEGIN {system("/bin/sh -p")}'
+</code></pre>
+
+        <blockquote>
+          <p>
+            [!IMPORTANT]
+            <strong>The <code>-p</code> flag:</strong> Modern shells like <code>bash</code> or <code>sh</code> drop elevated privileges when they detect a mismatch between actual user IDs and effective user IDs. Appending <code>-p</code> ensures the shell preserves the inherited root privilege stream.
+          </p>
+        </blockquote>
+
+        <h2>Remediation & Hardening</h2>
+        <ol>
+          <li><strong>Audit SUID Permissions:</strong> Keep standard directories clear of custom SUID configurations. Only allow active bits on verified, secure system binaries.</li>
+          <li><strong>Remove Unnecessary SUID Bits:</strong> Strip SUID privileges using <code>chmod</code>:
+            <pre style="margin: 1rem 0;"><code>chmod u-s /path/to/vulnerable_binary</code></pre>
+          </li>
+          <li><strong>Principle of Least Privilege:</strong> If scripts need privileged routines, leverage <code>sudo</code> with granular, exact command configurations in <code>/etc/sudoers</code> rather than mapping wide SUID parameters.</li>
+        </ol>
+
+        <h2>Conclusion</h2>
+        <p>
+          SUID configurations require vigilant administrative monitoring. Securing your enterprise begins with continuous automated system audits. By scanning your directories and eliminating loose binary parameters, you verify that local access paths remain hardened against exploit models.
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <!-- Premium Footer -->
+  <footer class="footer" id="postFooter">
+    <div class="container footer-content">
+      <div>
+        <div class="footer-logo">GAIRE_SYSTEMS.</div>
+        <div class="footer-copy" style="margin-top: 0.5rem;">
+          &copy; 2026 Ashok Gaire. All rights reserved. Registered M.Eng CE Systems.
+        </div>
+      </div>
+      <ul class="footer-socials">
+        <li><a href="https://www.linkedin.com/in/ashok-gaire-20b5b1149/" class="footer-social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/ashokgaire" class="footer-social-link" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://ashokgaire.github.io/" class="footer-social-link" target="_blank" rel="noopener noreferrer">Legacy Blog</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../js/main.js"></script>
+</body>
+</html>
