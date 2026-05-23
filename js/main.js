@@ -307,11 +307,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Check system preference or localStorage
+    // Check localStorage (Default is Dark Theme)
     const savedPreference = localStorage.getItem('theme-preference');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    if (savedPreference === 'light' || (!savedPreference && !systemPrefersDark)) {
+    if (savedPreference === 'light') {
       setLightTheme();
     } else {
       setDarkTheme();
